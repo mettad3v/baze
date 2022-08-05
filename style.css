@@ -2836,11 +2836,15 @@ Notes: To change the font, install it manually with convert the download zipped 
     }
  }
  
+ 
  @media (max-width:320px) {
     .logo-sm-white{
         width: 150px;
         height: 140px;
         margin-top: -85px !important;
+    }
+    .head-title-mobile{
+        display: none;
     }
  }
 
@@ -2850,7 +2854,46 @@ Notes: To change the font, install it manually with convert the download zipped 
         height: 140px;
         margin-top: -85px !important;
     }
+    .head-title-mobile{
+        display: none;
+    }
  }
+ 
  .list li{
     list-style: circle !important;
  }
+
+ .bar-text{
+    font-size: xx-large;
+    /* visibility: hidden; */
+    font-weight: 600;
+    margin: 0 60px;
+    font-family: 'poppins', Arial, Helvetica, sans-serif;
+ }
+
+ @media (min-width:768px) {
+    .bar-text-mobile{
+        display: none !important;
+    }
+ }
+ @media (max-width:768px) {
+    .mt{
+        margin-top: 10px;
+     }
+ }
+
+ .anotation{
+    width: auto; 
+    margin: 3px; 
+    font-size: 13px;
+ }
+
+ @media (max-width:320px) {
+    .anotation{
+        width: auto; 
+        margin-left: 3px; 
+        font-size: 13px;
+     }
+ }
+
+ 
