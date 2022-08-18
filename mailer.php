@@ -19,8 +19,6 @@ class Register
 
     public function init()
     {
-        global $connection, $pass;
-
         if (isset($_POST)) {
             if (isset($_POST["name"]) && $_POST["email"] && $_POST["message"] && $_POST["subject"]) {
 
@@ -46,10 +44,7 @@ class Register
     private function sendMail($email, $name, $message, $subject)
     {
 
-
-
         $mail = new PHPMailer(true);
-
 
         try {
             //Server settings
@@ -71,14 +66,14 @@ class Register
             $mail->Port       = 587;                                    //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
             //Recipients
-            $mail->setFrom('support@tradinghub-fx.com', 'Tradinghub-fx.com');
-            $mail->addAddress('support@tradinghub-fx.com');     //Add a recipient
+            $mail->setFrom($email, $name);
+            $mail->addAddress('sixtus402@gmail.com');     //Add a recipient
 
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
-            $mail->Subject = 'Welcome to Tradinghub-fx.com';
-            $mail->Body    = "<p>Hello <b>$username</b>!"  . "\r\n" . "Thank you for registering with Tradinghub-fx.com.</p> <p>Your login information, <b style='color: red;'>please keep to yourself</b> : </p> <p>username: $username, <br> password: $pass </p> <p>You can also login with your email here: https://Tradinghub-fx.com.co</p> <p>Please ignore if you did not authorize this action.</p>  <br> <p>Kind regards, <br> Admin Tradinghub-fx</p>";
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
 
             $mail->send();
         } catch (Exception $e) {
